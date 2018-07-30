@@ -111,6 +111,14 @@ The parameters that will be passed to `#show` are as follows:
  - `user` is the value passed to `Rails.menus.show`, which should be a reference to the current user. This can be `nil`.
  - `**options` is a hash of additional options - it's up to you what you want to support. Look at the adapter files in `lib/structured_menus/adapters`
    to see the options that the stock adapters support.
+   
+Once you've written your adapter, tell structured_menus about it by adding it to the configuration file:
+
+```ruby
+StructuredMenus::Configurator.configure do |config|
+  config.adapters << YourCustomAdapterClass
+end
+```
 
 ## Contributions
 Welcome. Ping me a PR. For large changes you should probably open an issue first to discuss.
