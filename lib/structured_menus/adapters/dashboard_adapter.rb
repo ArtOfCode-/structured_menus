@@ -20,7 +20,7 @@ module StructuredMenus::Adapters
         inst.raw("<div class=\"#{cls}\">#{inst.link_to inst.raw("<i class=\"fas fa-#{i['icon']}\"></i> #{i['name']}"), i['link']}</div>")
       end.compact
 
-      inst.raw(cards.in_groups_of(12 / width).map(&:compact).map do |g|
+      inst.raw(cards.in_groups_of(width).map(&:compact).map do |g|
         '<div class="row">' + g.map { |c| "<div class=\"col-md-#{12 / width}\">#{c}</div>" }.join("\n") + '</div>'
       end.join("\n"))
     end
